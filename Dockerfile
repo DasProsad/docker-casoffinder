@@ -26,7 +26,7 @@ ARG APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 
 # Set conda arguments
 ARG CONDA_DIR=/opt/conda
-ARG CONDA_ENV_NAME="PRotActor"
+ARG CONDA_ENV_NAME="Cas-Offinder"
 
 # Install miniconda to /miniconda
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-py38_23.11.0-2-Linux-x86_64.sh -O /tmp/miniconda.sh && \
@@ -48,12 +48,7 @@ RUN /bin/bash -c ". activate $CONDA_ENV_NAME && \
     conda config --add channels defaults && \
     conda config --add channels bioconda && \
     conda config --add channels conda-forge && \
-    conda install -y intel-opencl-rt cas-offinder"
-
-# Copy and install Python requirements
-#COPY ./requirements.txt /protactor/requirements.txt
-
-#RUN /bin/bash -c ". activate $CONDA_ENV_NAME && pip3 install -r /protactor/requirements.txt"
+    conda install -y intel-opencl-rt cas-offinder";
 
 # Set working directory
 WORKDIR /home
